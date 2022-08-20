@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react'
-import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
-import "leaflet/dist/leaflet.css"
-import Head from 'next/head'
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+import 'leaflet/dist/leaflet.css';
+import Head from 'next/head';
 import { getCookie } from 'cookies-next';
 import Image from 'next/image'
 import Swal from 'sweetalert2'
@@ -12,6 +12,7 @@ import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import Navbarback from '../../components/navbarback';
 
 export default function Newgroup() {
+
     const Map = dynamic(() => import('../../components/map'), {
         ssr: false
       });
@@ -29,18 +30,21 @@ export default function Newgroup() {
     const [final_dest, setFinal_dest] = useState({ lat: -6.7169157, lng: 107.0296782});
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-      if(!token){
-        route.push('/login');
-      }
-    })
-    
-    useEffect(()=> {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          setLatitude(position.coords.latitude);
-          setLongitude(position.coords.longitude);
-        });
-      })
+
+
+  useEffect(() => {
+    if (!token) {
+      route.push('/login');
+    }
+  });
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    });
+  });
+
 
       const handleSubmit = async (e) => {
         setLoading(true);
@@ -68,11 +72,17 @@ export default function Newgroup() {
           .finally(() => setLoading(false));
       };
 
-      const handleChange = (value, key) => {
-        let temp = { ...objSubmit };
-        temp[key] = value;
-        setObjSubmit(temp);
-      };
+
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/..`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        alert('message');
+        setObjSubmit({});
+      })
+      .catch((error) => console.log('error', error))
+      .finally(() => setLoading(false));
+  };
+
 
       const handlePosition = (value, key) => {
         let temp = { ...objSubmit };
@@ -90,7 +100,7 @@ export default function Newgroup() {
     <div className='bg-[#ecf0f1] border-0 md:h-full w-[425px] mx-auto border-2 border-[#2c3e50] pb-10'>
       <Head>
         <title>LesGoo | New Group</title>
-        <link rel="icon" href="/icon.png" />
+        <link rel='icon' href='/icon.png' />
       </Head>
       <Navbarback title={'New Group'} />
       <form onSubmit={(e) => {
@@ -189,7 +199,12 @@ export default function Newgroup() {
           </div>
         </div>
         <button className='w-full flex justify-end mt-10'>
-          <BsFillArrowRightCircleFill id='btn-newgroup' size={40} color='#1abc9c' className='mr-5'/>
+          <BsFillArrowRightCircleFill
+            id='btn-newgroup'
+            size={40}
+            color='#1abc9c'
+            className='mr-5'
+          />
         </button>
       </form>
     </div>
