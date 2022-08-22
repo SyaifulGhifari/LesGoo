@@ -1,12 +1,12 @@
 {
-    "theme_color": "#f69435",
-    "background_color": "#f69435",
+    "theme_color": "#1abc9c",
+    "background_color": "#ecf0f1",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "next-pwa",
-    "short_name": "next-pwa",
-    "description": "example pwa",
+    "name": "LesGoo",
+    "short_name": "LesGoo",
+    "description": "Make your roadtrip easier!",
     "icons": [
         {
             "src": "/icon-192x192.png",
