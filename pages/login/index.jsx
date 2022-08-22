@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { setCookie, getCookie } from 'cookies-next';
 import Head from 'next/head';
+import Swal from 'sweetalert2';
 
 import localforage from 'localforage';
 import { current } from '@reduxjs/toolkit';
@@ -71,7 +72,7 @@ export default function Login() {
       }
     } catch (error) {
       console.log('error:', error);
-      alert('something is wrong, please recheck or refresh your page');
+      Swal.fire("Oops, everything is fine. All you need to do is just refresh the page. Thank you 😁")
     }
   };
 
