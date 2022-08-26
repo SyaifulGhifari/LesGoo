@@ -46,7 +46,6 @@ export default function Chat() {
       .then((response) => response.json())
       .then((result) => {
         const { data } = result;
-        // console.log(data);
         dispatch(
           setChats({
             groupname: data.name,

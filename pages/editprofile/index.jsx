@@ -79,16 +79,13 @@ export default function Editprofile() {
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users `, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         const { message } = result;
         route.push(`/profile`);
         Swal.fire(message);
       })
       .catch((error) => {
-        console.log(error);
         alert(error.toString());
-      })
-      .finally(console.log(formData));
+      });
   };
 
   const handleChange = (value, key) => {
@@ -108,7 +105,6 @@ export default function Editprofile() {
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users `, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         const { message, code } = result;
         if (code === 200) {
           Swal.fire(message);
@@ -118,7 +114,6 @@ export default function Editprofile() {
         }
       })
       .catch((error) => {
-        console.log(error);
         alert(error);
       })
       .finally(() => setLoading(false));

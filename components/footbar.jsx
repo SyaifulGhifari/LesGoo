@@ -98,14 +98,12 @@ export default function Footbar(props) {
       const data = await response.json();
       if (response.status < 300 || data.message == 'notification not sent') {
         setMessage((state) => ({ ...state, message: '' }));
-        console.log(data);
         fetchChat();
         // alert('success');
       } else if (response.status >= 300) {
         throw data.message;
       }
     } catch (error) {
-      console.log('error:', error);
       alert('message is required');
     }
   };
@@ -123,7 +121,6 @@ export default function Footbar(props) {
       .then((response) => response.json())
       .then((result) => {
         const { data } = result;
-        console.log(data);
         if (data.status != 'active') {
           Swal.fire({
             icon: 'warning',
@@ -163,7 +160,6 @@ export default function Footbar(props) {
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/group/leave`, leave)
       .then((response) => response.json())
       .then((result) => {
-        // console.log(result);
         deleteCookie('usr_group_id');
         router.push('/');
       })

@@ -30,7 +30,6 @@ export default function Navbargroup() {
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/group/leave`, leave)
       .then((response) => response.json())
       .then((result) => {
-        // console.log(result);
         deleteCookie('usr_group_id');
         router.push('/');
       })
@@ -55,7 +54,6 @@ export default function Navbargroup() {
       );
       const data = await response.json();
       if (response.status === 200) {
-        console.log('logout success');
         deleteCookie('usr_token');
         deleteCookie('usr_username');
         deleteCookie('usr_group_id');

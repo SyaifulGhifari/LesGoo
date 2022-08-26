@@ -37,7 +37,6 @@ export default function Profile() {
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users `, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         const { data } = result;
         const { ID, Username, Email, Phone, ProfileImg } = data;
         setId(ID);
