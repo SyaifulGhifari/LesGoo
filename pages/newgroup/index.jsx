@@ -86,7 +86,6 @@ export default function Newgroup() {
           setObjSubmit({});
         }
       })
-      .catch((error) => console.log('error', error))
       .finally(() => setLoading(false));
   };
 
@@ -166,7 +165,9 @@ export default function Newgroup() {
               type='date'
               required
               id='start-date'
-              onChange={(e) => {handleChange(e.target.value, 'start_date');}}
+              onChange={(e) => {
+                handleChange(e.target.value, 'start_date');
+              }}
             />
           </div>
           <div className='bg-[#1abc9c] rounded'>
@@ -175,13 +176,17 @@ export default function Newgroup() {
               id='end-date'
               required
               type='date'
-              onChange={(e) => {handleChange(e.target.value, 'end_date');}}
+              onChange={(e) => {
+                handleChange(e.target.value, 'end_date');
+              }}
             />
           </div>
         </div>
         <div className='w-full mt-10 h-auto bg-white'>
           <h2 className='p-3'>Start Location</h2>
-          <p className='text-xs text-center mb-2 opacity-50'>Marker must be moved to set your location</p>
+          <p className='text-xs text-center mb-2 opacity-50'>
+            Marker must be moved to set your location
+          </p>
           <Map
             popup_label='Start Location'
             center={start_dest}
@@ -201,7 +206,9 @@ export default function Newgroup() {
         </div>
         <div className='w-full mt-10 h-auto bg-white'>
           <h2 className='p-3'>Set Destination</h2>
-          <p className='text-xs text-center mb-2 opacity-50'>Marker must be moved to set your location</p>
+          <p className='text-xs text-center mb-2 opacity-50'>
+            Marker must be moved to set your location
+          </p>
           <Map
             popup_label='Destination'
             center={final_dest}

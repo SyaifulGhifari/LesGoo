@@ -30,7 +30,6 @@ export default function Navbar(props) {
       );
       const data = await response.json();
       if (response.status === 200) {
-        console.log('logout success');
         deleteCookie('usr_token');
         deleteCookie('usr_username');
         localforage.clear();

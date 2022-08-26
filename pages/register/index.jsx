@@ -42,13 +42,11 @@ export default function Register() {
       );
       const data = await response.json();
       if (response.status < 300) {
-        console.log('ININI');
         router.push('/login');
       } else if (response.status >= 300) {
         throw data.message;
       }
     } catch (error) {
-      console.log('error:', error);
       alert(error);
     }
   };

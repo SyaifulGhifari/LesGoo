@@ -57,7 +57,6 @@ export default function Login() {
       );
       const data = await response.json();
       if (response.status < 300) {
-        console.log(data);
         setCookie('usr_token', data.data.token);
         setCookie('usr_username', dataLogin.username);
         setCookie('usr_group_id', data.data.group_id);
@@ -71,7 +70,6 @@ export default function Login() {
         throw data.message;
       }
     } catch (error) {
-      console.log('error:', error);
       alert(error);
     }
   };

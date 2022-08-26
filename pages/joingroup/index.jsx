@@ -59,7 +59,6 @@ export default function JoinGroup() {
         throw data.message;
       }
     } catch (error) {
-      console.log('error:', error);
       alert(error);
     }
   };

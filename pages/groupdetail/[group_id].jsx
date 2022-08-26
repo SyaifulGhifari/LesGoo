@@ -41,7 +41,6 @@ export default function GroupDetail() {
     )
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         if (result.code > 300) {
           alert('group is already deleted');
           router.push(`/group/${group_id}`);
@@ -59,8 +58,7 @@ export default function GroupDetail() {
       })
       .catch((err) => {
         // alert(err.toString());
-      })
-      .finally(console.log(dataGroup));
+      });
   };
   return (
     <div className='bg-[#ecf0f1] border-0 h-full md:w-[425px] mx-auto border-2 border-[#2c3e50] pb-10 lg:min-h-screen xl:h-full'>
